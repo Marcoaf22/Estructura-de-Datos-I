@@ -1,6 +1,7 @@
 package PolinomioFraccion;
 
 public class Fraccion {
+
     int nume;
     int deno;
 
@@ -11,10 +12,11 @@ public class Fraccion {
 
     public Fraccion(int nume, int deno, char signo) {
         this.deno = deno;
-        if (signo == '+')
+        if (signo == '+') {
             this.nume = +nume;
-        else
+        } else {
             this.nume = -nume;
+        }
         Simplificar();
     }
 
@@ -32,14 +34,15 @@ public class Fraccion {
         } else {
             return '-';
         }
-        // return nume>=0?'+':'-';
+        //return nume>=0?'+':'-';
     }
 
     public void setNume(int nume) {
-        if (this.nume >= 0)
+        if (this.nume >= 0) {
             this.nume = nume;
-        else
+        } else {
             this.nume = -nume;
+        }
     }
 
     public void setDeno(int deno) {
@@ -47,10 +50,11 @@ public class Fraccion {
     }
 
     public void setSigno(char signo) {
-        if (signo == '+')
+        if (signo == '+') {
             nume = Math.abs(nume);
-        else
+        } else {
             nume = -Math.abs(nume);
+        }
     }
 
     public void Suma(Fraccion A, Fraccion B) {
@@ -90,9 +94,9 @@ public class Fraccion {
     public int MCD() {
         int u = Math.abs(nume);
         int v = Math.abs(deno);
-        if (v == 0)
+        if (v == 0) {
             return u;
-        else {
+        } else {
             int z;
             while (v != 0) {
                 z = u % v;
@@ -109,7 +113,8 @@ public class Fraccion {
         return c;
     }
 
-    public String totring() {
+    @Override
+    public String toString() {
         String c;
         if (getDeno() != 1) {
             c = "" + getSigno() + getNume() + "/" + getDeno();
@@ -120,9 +125,9 @@ public class Fraccion {
     }
 
     public static void main(String[] args) {
-        Fraccion j = new Fraccion(5, 8, '+');
-        // j.Simplificar();
-        System.out.println(j.totring());
+        Fraccion j = new Fraccion(8, 8, '+');
+        j.Simplificar();
+        System.out.println(j.toString());
 
     }
 }
