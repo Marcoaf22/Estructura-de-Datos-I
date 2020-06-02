@@ -4,6 +4,10 @@
 # Log file
 *.log
 
+# Mi presentacion
+
+Formulario.java
+
 # BlueJ files
 *.ctxt
 
