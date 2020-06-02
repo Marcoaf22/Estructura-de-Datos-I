@@ -10,8 +10,8 @@ public class Monomio {
         grado = -1;
     }
 
-    public Monomio(int coeficiente, int grado , char signo){
-        this.coeficiente=signo=='+'?coeficiente:-coeficiente;
+    public Monomio(int coeficiente, int grado, char signo) {
+        this.coeficiente = signo == '+' ? coeficiente : -coeficiente;
         this.grado = grado;
     }
 
@@ -36,16 +36,11 @@ public class Monomio {
     }
 
     public void setSigno(final char signo) {
-        if (signo == '+')
+        if (signo == '+') {
             coeficiente = Math.abs(coeficiente);
-        else
+        } else {
             coeficiente = -Math.abs(coeficiente);
-    }
-
-    @Override
-    public String toString() {
-        return "" + this.coeficiente + "^" + this.grado;
-
+        }
     }
 
     public String toStringP() {
@@ -56,25 +51,26 @@ public class Monomio {
         if (getGrado() > 9) {
             e = e + s.charAt(getGrado() / 10);
             e = e + s.charAt(getGrado() % 10);
-        } else
+        } else {
             e = e + s.charAt(getGrado());
+        }
         // dependiendo del grado ponemos los numero o no
         if (getGrado() > 0) {
             if (getGrado() == 1) {
                 s = coeficiente + "x ";
-            } else
+            } else {
                 s = "" + coeficiente + "x" + e + " ";
-        } else
+            }
+        } else {
             s = coeficiente + " ";
+        }
         // Listo
         return s;
     }
 
-    public static void main(String args[]){
-
-        Monomio a = new Monomio(2,3,'-');
+    public static void main(String args[]) {
+        Monomio a = new Monomio(2, 3, '-');
         System.out.println(a.toStringP());
     }
-
 
 }

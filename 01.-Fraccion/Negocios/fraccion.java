@@ -1,3 +1,4 @@
+package Negocios;
 
 public class fraccion {
 
@@ -9,7 +10,7 @@ public class fraccion {
         this.deno = 1;
     }
 
-    public fraccion(final int nume, final int deno, final char signo) {
+    public fraccion(int nume, int deno, char signo) {
         this.deno = deno;
         if (signo == '+') {
             this.nume = +nume;
@@ -42,7 +43,7 @@ public class fraccion {
         }
     }
 
-    public void setNume(final int nume) {
+    public void setNume(int nume) {
         if (this.nume >= 0) {
             this.nume = nume;
         } else {
@@ -50,11 +51,11 @@ public class fraccion {
         }
     }
 
-    public void setDeno(final int deno) {
+    public void setDeno(int deno) {
         this.deno = deno;
     }
 
-    public void setSigno(final char signo) {
+    public void setSigno(char signo) {
         if (signo == '+') {
             nume = Math.abs(nume);
         } else {
@@ -62,25 +63,25 @@ public class fraccion {
         }
     }
 
-    public void Suma(final fraccion A, final fraccion B) {
+    public void Suma(fraccion A, fraccion B) {
         deno = A.getDeno() * B.getDeno();
         nume = (A.nume * B.getDeno()) + (A.getDeno() * B.nume);
         Simplificar();
     }
 
-    public void Resta(final fraccion A, final fraccion B) {
+    public void Resta(fraccion A, fraccion B) {
         deno = A.getDeno() * B.getDeno();
         nume = (A.nume * B.getDeno()) - (A.getDeno() * B.nume);
         Simplificar();
     }
 
-    public void Multiplicar(final fraccion A, final fraccion B) {
+    public void Multiplicar(fraccion A, fraccion B) {
         deno = A.getDeno() * B.getDeno();
         nume = A.nume * B.nume;
         Simplificar();
     }
 
-    public void Dividir(final fraccion A, final fraccion B) {
+    public void Dividir(fraccion A, fraccion B) {
         nume = A.nume * B.deno;
         deno = A.deno * B.nume;
         if (deno < 0) {
@@ -91,7 +92,7 @@ public class fraccion {
     }
 
     public void Simplificar() {
-        final int x = MCD();
+        int x = MCD();
         nume = nume / x;
         deno = deno / x;
     }
@@ -112,32 +113,27 @@ public class fraccion {
         }
     }
 
-    public String ToString() {
-        String c = " C= ";
-        c = "       " + getNume() + "\n" + c + getSigno() + " ---" + "\n       " + getDeno();
+    @Override
+    public String toString() {
+        String c = "C= " + getSigno() + getNume() + "/" + getDeno();
         return c;
     }
 
-    public String AString() {
-        final String c = "C= " + getSigno() + getNume() + "/" + getDeno();
-        return c;
+    public String toStringB() {
+        String c = "" + getSigno() + getNume() + "/" + getDeno() + "  ";
+        return nume == 0 ? "0" : deno == 1 ? "" + nume + "" : c;
     }
 
-    public String MString() {
-        final String c = "" + getSigno() + getNume() + "/" + getDeno() + "  ";
-        return nume == 0 ? "0     " : deno == 1 ? "" + nume + "     " : c;
-    }
-
-    public void copy(final fraccion a) {
+    public void copy(fraccion a) {
         nume = a.nume;
         deno = a.deno;
     }
 
-    public static void main(final String[] args) {
-        final fraccion B = new fraccion(3, 1, '+');
-        final fraccion A = new fraccion(4, 1, '+');
-        final fraccion C = new fraccion();
+    public static void main(String[] args) {
+        fraccion A = new fraccion(2, 1, '-');
+        fraccion B = new fraccion(5, 1, '-');
+        fraccion C = new fraccion();
         C.Suma(A, B);
-        System.out.println(C.AString());
+        System.out.println(C.toStringB());
     }
 }

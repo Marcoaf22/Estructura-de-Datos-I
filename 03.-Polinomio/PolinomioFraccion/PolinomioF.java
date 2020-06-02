@@ -53,8 +53,9 @@ public class PolinomioF {
 
     private boolean existeGrado(int grado) {
         for (int i = 0; i < dim; i++) {
-            if (m[i].getGrado() == grado)
+            if (m[i].getGrado() == grado) {
                 return true;
+            }
         }
         return false;
     }
@@ -93,17 +94,17 @@ public class PolinomioF {
             i++;
         }
         return m[i].getGrado() == x ? i : -1;
-        // if(m[i].grado==x){
-        // return i;
-        // }else{
-        // return -1;
-        // }
+//      if(m[i].grado==x){
+//          return i;
+//      }else{
+//          return -1;
+//      }
     }
 
     public int valorX(int x) {
         int aux = 0;
         for (int i = 0; i < dim; i++) {
-            // aux=aux+m[i].coeficiente*(int)Math.pow(x,m[i].getGrado());
+            //    aux=aux+m[i].coeficiente*(int)Math.pow(x,m[i].getGrado());
         }
         return aux;
     }

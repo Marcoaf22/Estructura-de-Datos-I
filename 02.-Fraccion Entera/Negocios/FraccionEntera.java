@@ -1,3 +1,5 @@
+package Negocios;
+
 public class FraccionEntera {
 
     int entero;// El entero es el que tendra el signo

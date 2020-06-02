@@ -45,8 +45,7 @@ public class Polinomio {
     }
 
     ;
-
-    public void eliminar(int grado) {
+public void eliminar(int grado) {
         if (existeGrado(grado)) {
             int p = posGrado(grado);
             if (p == dim) {
@@ -219,13 +218,24 @@ public class Polinomio {
         return f;
     }
 
-    /*
-     * public String toString(){ String f=""; for (int i=0;i<dim;i++){
-     * if(m[i].getCoeficiente()!=0){ if(m[i].getGrado()!=0){ if
-     * (m[i].getGrado()!=1){
-     * f=f+m[i].getSigno()+m[i].getCoeficiente()+"X^"+m[i].getGrado()+" "; } else{
-     * f=f+m[i].getSigno()+m[i].getCoeficiente()+"X "; } }else{
-     * f=f+m[i].getSigno()+m[i].getCoeficiente()+" "; } } } return f; }
+    /*public String toString(){
+    String f="";
+    for (int i=0;i<dim;i++){
+        if(m[i].getCoeficiente()!=0){
+            if(m[i].getGrado()!=0){
+                if (m[i].getGrado()!=1){
+                f=f+m[i].getSigno()+m[i].getCoeficiente()+"X^"+m[i].getGrado()+" ";
+                }
+                else{
+                    f=f+m[i].getSigno()+m[i].getCoeficiente()+"X ";
+                }
+            }else{
+            f=f+m[i].getSigno()+m[i].getCoeficiente()+" ";
+            }
+        }
+    }
+    return f;
+}
      */
     public static void main(String[] args) {
         Polinomio p = new Polinomio();
